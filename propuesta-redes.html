@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión de Redes + Publicidad — Dree Studio</title>
+<style>
+  :root{--acc:#4ea8ff;--gold:#ffcc00;--negro:#08090c;--carbon:#111319;--gris:#1a1d25;--texto:#e8eaee;--muted:#9098a4;--verde:#25d366}
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
+  body{background:var(--negro);color:var(--texto);line-height:1.6}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.1}
+
+  .hero{text-align:center;padding:80px 0 50px;background:radial-gradient(ellipse at top,#12233b,var(--negro))}
+  .kick{color:var(--gold);font-weight:700;letter-spacing:3px;font-size:.78rem;text-transform:uppercase;margin-bottom:16px}
+  .hero h1{font-size:clamp(2rem,5.5vw,3.6rem)}
+  .hero h1 span{color:var(--acc)}
+  .hero p{color:var(--muted);max-width:600px;margin:20px auto 0;font-size:1.12rem}
+
+  /* Embudo */
+  .funnel{padding:60px 0}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:820px){.steps{grid-template-columns:repeat(2,1fr)}}
+  .step{background:var(--carbon);border:1px solid #23262e;border-radius:14px;padding:22px;text-align:center}
+  .step .ic{font-size:2rem}
+  .step h3{font-size:1rem;margin:10px 0 6px;text-transform:uppercase}
+  .step p{color:var(--muted);font-size:.83rem}
+  .sec-title{text-align:center;font-size:clamp(1.6rem,4vw,2.6rem);text-transform:uppercase;margin-bottom:10px}
+  .sec-sub{text-align:center;color:var(--muted);margin-bottom:44px}
+
+  /* Planes */
+  .planes{padding:40px 0 70px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+  @media(max-width:900px){.grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+  .plan{background:var(--carbon);border:1px solid #23262e;border-radius:18px;padding:30px 26px;position:relative;transition:.3s}
+  .plan:hover{transform:translateY(-6px);border-color:#33404f}
+  .plan.top{border-color:var(--acc);box-shadow:0 20px 60px rgba(78,168,255,.15)}
+  .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--acc);color:#04223f;font-weight:800;font-size:.72rem;padding:5px 16px;border-radius:20px;text-transform:uppercase}
+  .plan h3{font-size:1.3rem;text-transform:uppercase}
+  .plan .desc{color:var(--muted);font-size:.85rem;margin:6px 0 18px;min-height:38px}
+  .price{font-size:2.6rem;font-weight:900;color:#fff}
+  .price small{font-size:.9rem;color:var(--muted);font-weight:600}
+  .feats{list-style:none;margin:20px 0}
+  .feats li{padding:8px 0;border-bottom:1px solid #1c1f27;font-size:.88rem;color:#cdd3dc;display:flex;gap:10px}
+  .feats li::before{content:"✓";color:var(--verde);font-weight:800}
+  .feats li.no{color:#5a6270}.feats li.no::before{content:"—";color:#454b56}
+  .cta{display:block;text-align:center;margin-top:22px;background:var(--gold);color:#000;font-weight:800;padding:14px;border-radius:10px;text-decoration:none;transition:.2s}
+  .cta:hover{background:#fff}
+  .plan.top .cta{background:var(--acc);color:#04223f}
+  .plan.top .cta:hover{background:#fff}
+
+  .aparte{background:rgba(255,204,0,.07);border:1px solid #4d4326;border-radius:12px;padding:20px;margin-top:36px;font-size:.9rem;color:#e0d9c2}
+  .aparte b{color:var(--gold)}
+
+  .web{background:var(--carbon);padding:50px 0;text-align:center;border-top:1px solid #23262e;border-bottom:1px solid #23262e}
+  .web h2{font-size:clamp(1.5rem,3.5vw,2.2rem);margin-bottom:10px}
+  .web .p2{color:var(--muted);margin-bottom:20px}
+  .web .oferta{display:inline-flex;align-items:center;gap:14px;background:var(--gris);border-radius:14px;padding:16px 26px}
+  .web .antes{text-decoration:line-through;color:#6b7280}
+  .web .ahora{font-size:2rem;font-weight:900;color:var(--gold)}
+
+  footer{text-align:center;padding:44px 22px;color:#5a6270;font-size:.85rem}
+  footer b{color:var(--acc)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="kick">🎬 Dree Studio · Gestión de Redes + Publicidad</div>
+  <h1>No manejamos redes.<br><span>Producimos clientes.</span></h1>
+  <p>Calidad cinematográfica + publicidad inteligente. Producimos el contenido que sí vende y lo convertimos en clientes por WhatsApp.</p>
+</div>
+
+<div class="wrap funnel">
+  <h2 class="sec-title">Cómo traemos clientes</h2>
+  <p class="sec-sub">Un sistema, no publicaciones sueltas.</p>
+  <div class="steps">
+    <div class="step"><div class="ic">🎥</div><h3>1. Contenido cine</h3><p>Producimos reels y videos que detienen el scroll.</p></div>
+    <div class="step"><div class="ic">🎯</div><h3>2. Anuncios + Pixel</h3><p>Pautamos y reperseguimos a quienes ya te vieron.</p></div>
+    <div class="step"><div class="ic">💬</div><h3>3. Leads a WhatsApp</h3><p>El interesado te escribe directo, sin fricción.</p></div>
+    <div class="step"><div class="ic">📊</div><h3>4. Reporte mensual</h3><p>Ves cuántos leads y de dónde vinieron. Todo medido.</p></div>
+  </div>
+</div>
+
+<div class="wrap planes">
+  <h2 class="sec-title">Planes mensuales</h2>
+  <p class="sec-sub">Elige según la etapa de tu negocio.</p>
+  <div class="grid">
+    <div class="plan">
+      <h3>Esencial</h3>
+      <div class="desc">Presencia sólida y constante en redes.</div>
+      <div class="price">S/590<small>/mes</small></div>
+      <ul class="feats">
+        <li>8 publicaciones al mes</li>
+        <li>Gestión de 2 redes (FB + IG)</li>
+        <li>Respuesta a mensajes/comentarios</li>
+        <li>Diseño gráfico profesional</li>
+        <li>Reporte mensual</li>
+        <li class="no">Producción de video</li>
+        <li class="no">Campañas de anuncios</li>
+      </ul>
+      <a class="cta" href="https://wa.me/51900000000?text=Quiero%20el%20plan%20Esencial" target="_blank">Empezar</a>
+    </div>
+
+    <div class="plan top">
+      <div class="badge">Más popular</div>
+      <h3>Crecimiento</h3>
+      <div class="desc">Contenido + publicidad para traer clientes.</div>
+      <div class="price">S/990<small>/mes</small></div>
+      <ul class="feats">
+        <li>12 publicaciones al mes</li>
+        <li>Gestión de 2 redes</li>
+        <li><b>1 reel/video al mes</b></li>
+        <li><b>Instalación de Pixel + retargeting</b></li>
+        <li><b>Gestión de campañas de anuncios</b></li>
+        <li>Captura de leads por WhatsApp</li>
+        <li>Reporte mensual de resultados</li>
+      </ul>
+      <a class="cta" href="https://wa.me/51900000000?text=Quiero%20el%20plan%20Crecimiento" target="_blank">Quiero este</a>
+    </div>
+
+    <div class="plan">
+      <h3>Cine</h3>
+      <div class="desc">Máxima producción audiovisual + estrategia.</div>
+      <div class="price">S/1,790<small>/mes</small></div>
+      <ul class="feats">
+        <li>16 publicaciones al mes</li>
+        <li>Gestión de 3 redes (+ TikTok)</li>
+        <li><b>3 reels/videos cinematográficos</b></li>
+        <li>Pixel + retargeting avanzado</li>
+        <li>Campañas de anuncios optimizadas</li>
+        <li>Estrategia de contenido mensual</li>
+        <li>Reporte con análisis de leads</li>
+      </ul>
+      <a class="cta" href="https://wa.me/51900000000?text=Quiero%20el%20plan%20Cine" target="_blank">Empezar</a>
+    </div>
+  </div>
+
+  <div class="aparte">
+    ⚠️ <b>Importante:</b> la <b>inversión en anuncios (pauta)</b> se paga directo a Meta/Facebook y es <b>aparte del plan</b>. Recomendamos empezar desde <b>S/300–500/mes</b> de pauta. Nosotros la gestionamos y optimizamos por ti.
+  </div>
+</div>
+
+<div class="web">
+  <div class="wrap">
+    <h2>¿Aún no tienes web? La incluimos</h2>
+    <p class="p2">Toda estrategia de redes necesita una web con Pixel para capturar. Por Fiestas Patrias:</p>
+    <div class="oferta">
+      <span class="antes">S/1000</span>
+      <span class="ahora">S/499</span>
+      <span style="color:var(--muted);font-size:.85rem">web + sistema de leads</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <b>Dree Studio</b> · Productora Audiovisual · Lima–Chiclayo, Perú<br>
+  Director: Andree Romero · dree.studio
+</footer>
+</body>
+</html>
