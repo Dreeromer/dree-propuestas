@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Captura sin formulario — Demo Dree Studio</title>
+<style>
+  :root{--amarillo:#ffcc00;--negro:#0c0d10;--carbon:#15171c;--gris:#1d2027;--texto:#e8eaee;--muted:#9aa0ab;--verde:#25d366}
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
+  body{background:var(--negro);color:var(--texto);line-height:1.6}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-weight:800;letter-spacing:-.02em}
+
+  .top{background:var(--carbon);border-bottom:1px solid #23262e;padding:16px 0}
+  .top .wrap{display:flex;justify-content:space-between;align-items:center}
+  .brand{font-size:1.3rem;font-weight:900}.brand b{color:var(--amarillo)}
+  .pill{background:#23262e;color:var(--muted);font-size:.72rem;padding:5px 12px;border-radius:20px}
+
+  .hero{padding:56px 0 34px;text-align:center;background:radial-gradient(ellipse at top,#1a1d24,var(--negro))}
+  .hero h1{font-size:clamp(1.7rem,5vw,2.6rem);margin-bottom:12px}
+  .hero h1 span{color:var(--amarillo)}
+  .hero p{color:var(--muted);max-width:540px;margin:0 auto}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:36px 0}
+  @media(max-width:860px){.cols{grid-template-columns:1fr}}
+  .card{background:var(--carbon);border:1px solid #23262e;border-radius:16px;padding:26px}
+  .card h2{font-size:1.2rem;margin-bottom:4px}
+  .card .sub{color:var(--muted);font-size:.88rem;margin-bottom:20px}
+
+  /* Botones de interés de 1 toque */
+  .tap{display:flex;flex-direction:column;gap:12px}
+  .tap a{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--gris);border:1px solid #2c2f38;color:#fff;text-decoration:none;padding:16px 18px;border-radius:12px;font-weight:700;transition:.2s}
+  .tap a:hover{border-color:var(--verde);transform:translateX(4px);background:#20242c}
+  .tap a .ic{font-size:1.4rem}
+  .tap a .go{color:var(--verde);font-size:.8rem;font-weight:700;white-space:nowrap}
+
+  .track{background:var(--gris);border-radius:10px;padding:16px;font-size:.82rem}
+  .track .t{color:var(--amarillo);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:.7rem;margin-bottom:10px}
+  .track .row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #2c2f38}
+  .track .row:last-child{border:0}
+  .track .row b{color:#fff}
+  .track .row .no{color:#ff8a8a}.track .row .yes{color:#7ee2a8}
+
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+  @media(max-width:520px){.compare{grid-template-columns:1fr}}
+  .box{border-radius:12px;padding:16px;font-size:.85rem}
+  .box.g{background:rgba(37,211,102,.08);border:1px solid #1f6f3f}
+  .box.r{background:rgba(255,90,90,.07);border:1px solid #6f2a2a}
+  .box h3{font-size:.95rem;margin-bottom:8px}
+  .box.g h3{color:#7ee2a8}.box.r h3{color:#ff9a9a}
+  .box ul{list-style:none;font-size:.82rem;color:var(--muted)}
+  .box li{padding:3px 0}
+
+  .note{background:var(--carbon);border-left:3px solid var(--amarillo);padding:14px 18px;border-radius:8px;margin:10px 0 40px;font-size:.85rem;color:var(--muted)}
+  .note b{color:#fff}
+
+  /* Banner de cookies */
+  .cookie{position:fixed;bottom:0;left:0;right:0;background:#16181e;border-top:1px solid #2c2f38;padding:18px 22px;display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;z-index:100;transition:.4s;box-shadow:0 -8px 30px rgba(0,0,0,.4)}
+  .cookie.hide{transform:translateY(120%)}
+  .cookie p{font-size:.82rem;color:var(--muted);max-width:560px}
+  .cookie b{color:#fff}
+  .cookie .acts{display:flex;gap:10px}
+  .cookie button{border:none;padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.85rem}
+  .acc{background:var(--amarillo);color:#000}.rej{background:#2c2f38;color:var(--texto)}
+
+  .wa-float{position:fixed;bottom:26px;right:26px;width:60px;height:60px;background:var(--verde);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(37,211,102,.5);z-index:90;font-size:1.9rem;text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <div class="brand">DEMO · Captura <b>sin formulario</b></div>
+  <div class="pill">1 toque = lead · sin fricción</div>
+</div></div>
+
+<div class="hero">
+  <h1>Sin formularios. <span>Un solo toque.</span></h1>
+  <p>La gente odia llenar formularios. Aquí solo eligen lo que les interesa y ¡listo! — tú recibes su contacto por WhatsApp automáticamente.</p>
+</div>
+
+<div class="wrap cols">
+  <!-- LO QUE VE EL CLIENTE -->
+  <div class="card">
+    <h2>¿Qué necesitas para tu obra?</h2>
+    <div class="sub">Toca una opción y te atendemos al instante 👇</div>
+    <div class="tap">
+      <a href="https://wa.me/51960323349?text=Hola%20RUPER%2C%20me%20interesa%20alquilar%20una%20*excavadora*%20%F0%9F%9A%9C" target="_blank" onclick="cap('Excavadora')">
+        <span><span class="ic">🚜</span> Alquilar excavadora</span><span class="go">Chat →</span></a>
+      <a href="https://wa.me/51960323349?text=Hola%20RUPER%2C%20me%20interesa%20un%20*cargador%20frontal*" target="_blank" onclick="cap('Cargador frontal')">
+        <span><span class="ic">🏗️</span> Cargador frontal</span><span class="go">Chat →</span></a>
+      <a href="https://wa.me/51960323349?text=Hola%20RUPER%2C%20me%20interesa%20una%20*motoniveladora*" target="_blank" onclick="cap('Motoniveladora')">
+        <span><span class="ic">🛣️</span> Motoniveladora</span><span class="go">Chat →</span></a>
+      <a href="https://wa.me/51960323349?text=Hola%20RUPER%2C%20necesito%20*agregados*" target="_blank" onclick="cap('Agregados')">
+        <span><span class="ic">🪨</span> Agregados / material</span><span class="go">Chat →</span></a>
+    </div>
+    <div class="note" style="margin-bottom:0;margin-top:22px">
+      <b>Cómo se convierte en lead:</b> al tocar, se abre su WhatsApp con el mensaje ya escrito. Cuando lo envía, <b>su número queda en tu WhatsApp</b> junto con lo que quiere. Cero formularios.
+    </div>
+  </div>
+
+  <!-- LO QUE TÚ RECIBES -->
+  <div class="card">
+    <h2>Qué capturas en cada caso</h2>
+    <div class="sub">La verdad sin humo: no todo clic te da un contacto.</div>
+
+    <div class="track">
+      <div class="t">🍪 Estado de esta visita</div>
+      <div class="row"><span>Cookies / Pixel</span><b id="ck">Pendiente…</b></div>
+      <div class="row"><span>Origen del visitante</span><b id="src">—</b></div>
+      <div class="row"><span>Toques de interés</span><b id="taps">0</b></div>
+      <div class="row"><span>Último interés</span><b id="last">—</b></div>
+    </div>
+
+    <div class="compare">
+      <div class="box g">
+        <h3>✅ Botón WhatsApp</h3>
+        <ul>
+          <li>✔ Su número real</li>
+          <li>✔ Qué le interesa</li>
+          <li>✔ Conversación abierta</li>
+          <li>= <b style="color:#7ee2a8">LEAD real</b></li>
+        </ul>
+      </div>
+      <div class="box r">
+        <h3>🍪 Aceptar cookies</h3>
+        <ul>
+          <li>✔ Audiencia para ads</li>
+          <li>✔ Retargeting (perseguir)</li>
+          <li>✘ NO da su teléfono</li>
+          <li>= <b style="color:#ff9a9a">Anónimo</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="note">
+    <b>Estrategia recomendada:</b> combina las dos. Los botones de WhatsApp te dan <b>leads reales de un toque</b>, y el Pixel (cookies) te arma una <b>audiencia para anuncios</b> con los que sí visitaron pero no escribieron. Nada oculto, todo con consentimiento (Ley 29733). Eso es parte de tu <b>mantenimiento mensual de S/300</b>.
+  </div>
+</div>
+
+<!-- Banner cookies -->
+<div class="cookie" id="cookie">
+  <p>🍪 Usamos cookies para mejorar tu experiencia y mostrarte contenido relevante. <b>Aceptarlas activa el retargeting (anuncios)</b>, no comparte tu identidad.</p>
+  <div class="acts">
+    <button class="rej" onclick="cookieChoice(false)">Rechazar</button>
+    <button class="acc" onclick="cookieChoice(true)">Aceptar cookies</button>
+  </div>
+</div>
+
+<a href="https://wa.me/51960323349?text=Hola%20RUPER" class="wa-float" target="_blank">💬</a>
+
+<script>
+  // Origen
+  function getSource(){
+    const r=document.referrer;
+    if(!r) return 'Directo';
+    if(/facebook|fb\./i.test(r)) return 'Facebook';
+    if(/instagram/i.test(r)) return 'Instagram';
+    if(/google/i.test(r)) return 'Google';
+    try{return new URL(r).hostname}catch(e){return 'Otro'}
+  }
+  document.getElementById('src').textContent=getSource();
+
+  // Cookie consent
+  function cookieChoice(ok){
+    document.getElementById('cookie').classList.add('hide');
+    const el=document.getElementById('ck');
+    if(ok){el.textContent='Aceptadas · Pixel activo 🎯';el.className='yes';
+      // En producción: aquí se dispara fbq('init') / gtag() para retargeting
+    } else {el.textContent='Rechazadas';el.className='no';}
+    localStorage.setItem('rp_cookie',ok?'1':'0');
+  }
+  const prev=localStorage.getItem('rp_cookie');
+  if(prev!==null){document.getElementById('cookie').classList.add('hide');cookieChoice(prev==='1');}
+
+  // Contar toques de interés
+  let taps=+localStorage.getItem('rp_taps')||0;
+  document.getElementById('taps').textContent=taps;
+  function cap(interes){
+    taps++; localStorage.setItem('rp_taps',taps);
+    document.getElementById('taps').textContent=taps;
+    document.getElementById('last').textContent=interes;
+    localStorage.setItem('rp_last',interes);
+    // En producción: fbq('track','Lead') + registro anónimo del interés
+  }
+  const last=localStorage.getItem('rp_last'); if(last) document.getElementById('last').textContent=last;
+</script>
+</body>
+</html>
